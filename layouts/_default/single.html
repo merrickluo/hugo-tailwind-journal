@@ -16,6 +16,15 @@
         {{ end }}
     </ol>
     {{ end }}
+    {{ with .Params.categories }}
+    <ol class="mt-4">
+        {{ range . }}
+        <li class="inline-block">
+            <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="{{ "categories" | absURL }}/{{ . | urlize }}">{{ . }}</a>
+        </li>
+        {{ end }}
+    </ol>
+    {{ end }}
 </div>
 {{ end }}
 
