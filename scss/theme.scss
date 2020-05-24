@@ -39,6 +39,20 @@ a {
 }
 
 /* purgecss ignore */
+blockquote {
+    background-image: url(../images/quote-left-solid.svg), url(../images/quote-right-solid.svg);
+    background-position: top left, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 1em 1em, 1em 1em;
+    @apply p-8 m-5;
+}
+
+/* purgecss ignore */
+blockquote p {
+    @apply m-0;
+}
+
+/* purgecss ignore */
 pre.chroma {
     @apply p-4 overflow-x-auto font-mono text-lg;
 }
