@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ .Site.Params.LanguageCode }}">
 
-<head>
+  <head>
     <meta charset="utf-8">
     {{ hugo.Generator }}
 
@@ -46,41 +46,41 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700&display=swap">
     <link rel="stylesheet" href="{{ "css/theme.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/chroma.friendly.css" | absURL }}">
-</head>
-<body class="font-serif bg-gray-200 border-t-4 border-blue-500 antialiased">
+  </head>
+  <body class="font-serif bg-gray-200 border-t-4 border-blue-500 antialiased">
     <div class="w-full p-6 md:w-2/3 md:px-0 md:mx-auto xl:w-2/5">
-        <header class="mb-6">
-            <!-- All the pages must have a heading block, defaults to a link for the home page and a title. -->
-            <div class="mb-6 md:flex md:items-center">
-                {{ block "heading" . }}
-                    <div>
-                        {{ partial "back-home.html" . }}
-                        <h1 class="text-4xl font-bold">{{ .Title }}</h1>
-                    </div>
-                {{ end }}
-            </div>
+      <header class="mb-6">
+        <!-- All the pages must have a heading block, defaults to a link for the home page and a title. -->
+        <div class="mb-6 md:flex md:items-center">
+          {{ block "heading" . }}
+          <div>
+            {{ partial "back-home.html" . }}
+            <h1 class="text-4xl font-bold">{{ .Title }}</h1>
+          </div>
+          {{ end }}
+        </div>
 
-            <!-- If the blog has translation, they shoul be displayed here. -->
-            {{ if .IsTranslated }}
-            <nav>
-                {{ range $i, $lang := .Translations }}
-                {{ if $i }}/{{ end }}
-                <a href="{{ .Permalink }}">{{ $lang.Language.LanguageName }}</a>
-                {{ end}}
-            </nav>
-            {{ end }}
-        </header>
+        <!-- If the blog has translation, they shoul be displayed here. -->
+        {{ if .IsTranslated }}
+        <nav>
+          {{ range $i, $lang := .Translations }}
+          {{ if $i }}/{{ end }}
+          <a href="{{ .Permalink }}">{{ $lang.Language.LanguageName }}</a>
+          {{ end}}
+        </nav>
+        {{ end }}
+      </header>
 
-        <!-- The content block. -->
-        {{ block "content" . }}{{ end }}
+      <!-- The content block. -->
+      {{ block "content" . }}{{ end }}
 
-        <footer>
-            <p>
-                &copy; {{ now.Format "2006"}}. Made with <a href="https://gohugo.io/" target="_blank" rel="noreferrer">Hugo</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">TailwindCSS</a>.
-            </p>
-        </footer>
+      <footer>
+        <p>
+          &copy; {{ now.Format "2006"}}. Made with <a href="https://gohugo.io/" target="_blank" rel="noreferrer">Hugo</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">TailwindCSS</a>.
+        </p>
+      </footer>
     </div>
 
     {{ template "_internal/google_analytics.html" . }}
-</body>
+  </body>
 </html>
