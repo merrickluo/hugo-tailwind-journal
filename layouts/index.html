@@ -3,19 +3,22 @@
 <img class="hidden md:block w-20 rounded-full mr-6" src="{{ .Site.Params.Avatar | absURL }}" alt="{{ .Site.Params.Author }}">
 {{ end }}
 
-<div>
-  <h1 class="text-4xl font-bold">{{ .Site.Title }}</h1>
+<div class="w-full">
+  <div class="flex justify-between items-center w-full">
+    <h1 class="text-4xl font-bold">{{ .Site.Title }}</h1>
+    {{ partial "theme-toggle.html" }}
+  </div>
   <p>{{ .Site.Params.tagline }}</p>
   <div class="flex">
     {{ if .Site.Params.Social.Email }}
-    <a href="mailto:{{ .Site.Params.Social.Email }}" class="mr-2 border-none">
-      <img src="../images/envelope-regular.svg" class="h-5">
+    <a href="mailto:{{ .Site.Params.Social.Email }}" class="mr-2 w-5 text-cyan border-none">
+      {{ partial "svg/envelope-regular.svg" }}
     </a>
     {{ end }}
     {{ if .Site.Params.Social.Rss }}
     {{ with .OutputFormats.Get "RSS" }}
-    <a href="{{ .RelPermalink | absURL }}" class="mr-2 border-none">
-      <img src="../images/rss-solid.svg" class="w-4">
+    <a href="{{ .RelPermalink | absURL }}" class="mr-2 w-4 text-red border-none">
+      {{ partial "svg/rss-solid.svg" }}
     </a>
     {{ end }}
     {{ end }}

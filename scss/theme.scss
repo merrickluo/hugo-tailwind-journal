@@ -2,64 +2,126 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-background: #2e3440;
+  --color-background-alt: #272c36;
+  --color-background-dark: #434c5e;
+  --color-secondary: #e5e9f0;
+  --color-primary: #d8dee9;
+  --color-black: #3b4252;
+  --color-red: #bf616a;
+  --color-green: #a3be8c;
+  --color-yellow: #ebcb8b;
+  --color-blue: #81a1c1;
+  --color-magenta: #b48ead;
+  --color-cyan: #88c0d0;
+  --color-white: #e5e9f0;
+}
+
+[data-theme="light"] {
+  --color-background: #e5e9f0;
+  --color-background-alt: #d8dee9;
+  --color-background-dark: #b8c5db;
+  --color-primary: #3b4252;
+  --color-secondary: #2e3440;
+  --color-black: #3b4252;
+  --color-red: #99324b;
+  --color-green: #4f894c;
+  --color-yellow: #9a7500;
+  --color-blue: #3b6ea8;
+  --color-magenta: #97365b;
+  --color-cyan: #398eac;
+  --color-white: #485163;
+}
+
 body {
-    @apply text-gray-800;
+  @apply text-primary bg-background duration-700 ease-in-out;
 }
 
-h1, h2, h3, h4, h5, h6, strong {
-    @apply text-gray-900;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  @apply text-secondary;
 }
 
-article > p, ul, ol {
-    @apply text-lg tracking-wide;
+article > p,
+ul,
+ol {
+  @apply text-lg tracking-wide;
 }
 
-article > div, p, ul, ol, pre:not(:last-child) {
-    @apply mb-6;
+article > div,
+p,
+ul,
+ol,
+pre:not(:last-child) {
+  @apply mb-6;
 }
 
-article > ol, ul {
-    @apply list-disc ml-8;
+article > ol,
+ul {
+  @apply list-disc ml-8;
 }
 
 article > li:not(:last-of-type) {
-    @apply mb-2;
+  @apply mb-2;
 }
 
 article p > code {
-    @apply p-1/2 bg-gray-400;
+  @apply p-1/2 bg-background-alt;
 }
 
 article > h2 {
-    @apply text-2xl my-8 font-bold text-black;
+  @apply text-2xl my-8 font-bold text-secondary;
 }
 
 a {
-    @apply border-b border-black text-black;
+  @apply border-b border-primary text-secondary;
+}
+
+a:hover {
+  @apply bg-background-alt;
 }
 
 /* purgecss ignore */
 blockquote {
-    background-image: url(../images/quote-left-solid.svg), url(../images/quote-right-solid.svg);
-    background-position: top left, right bottom;
-    background-repeat: no-repeat, no-repeat;
-    background-size: 1em 1em, 1em 1em;
-    @apply p-8 m-5;
+  background-image: url(../images/quote-left-solid.svg),
+    url(../images/quote-right-solid.svg);
+  background-position: top left, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 1em 1em, 1em 1em;
+  filter: invert;
+  @apply p-8 m-5;
 }
 
 /* purgecss ignore */
 blockquote p {
-    @apply m-0;
+  @apply m-0;
 }
 
 /* purgecss ignore */
 pre.chroma {
-    @apply p-4 overflow-x-auto font-mono text-lg;
+  @apply p-4 overflow-x-auto font-mono text-lg;
 }
 
 @screen md {
-    /* purgecss ignore */
-    div.highlight {
-        @apply -mx-12;
-    }
+  /* purgecss ignore */
+  div.highlight {
+    @apply -mx-12;
+  }
+}
+
+/* purgecss ignore */
+.theme-toggle.light {
+  background: url(../images/sun-regular.svg) no-repeat;
+  filter: none;
+}
+
+.theme-toggle {
+  background: url(../images/moon-regular.svg) no-repeat;
+  filter: invert(1);
 }

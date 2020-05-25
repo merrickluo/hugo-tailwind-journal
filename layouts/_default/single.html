@@ -1,6 +1,9 @@
 {{ define "heading" }}
-<div>
-  {{ partial "back-home.html" . }}
+<div class="w-full">
+  <div class="flex justify-between w-full">
+    {{ partial "back-home.html" . }}
+    {{ partial "theme-toggle.html" }}
+  </div>
   
   <!-- Title and Publication Date -->
   <h1 class="text-4xl font-bold">{{ .Title }}</h1>
@@ -11,7 +14,7 @@
   <ol class="mt-4">
     {{ range . }}
     <li class="inline-block">
-      <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a>
+      <a class="border-none text-primary text-xs bg-background-alt hover:bg-background-dark hover:text-secondary rounded-sm px-3 py-1" href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a>
     </li>
     {{ end }}
   </ol>
@@ -20,7 +23,7 @@
   <ol class="mt-4">
     {{ range . }}
     <li class="inline-block">
-      <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="{{ "categories" | absURL }}/{{ . | urlize }}">{{ . }}</a>
+      <a class="border-none text-primary text-xs bg-background-alt hover:bg-background-dark hover:text-secondary rounded-sm px-3 py-1" href="{{ "categories" | absURL }}/{{ . | urlize }}">{{ . }}</a>
     </li>
     {{ end }}
   </ol>
