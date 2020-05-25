@@ -10,7 +10,10 @@ const detectTheme = () => {
   }
 
   if (theme === "light") {
-    document.querySelector(".theme-toggle").classList.add("light");
+    const toggle = document.querySelector(".theme-toggle");
+    if (toggle) {
+      toggle.classList.add("light");
+    }
     document.documentElement.setAttribute("data-theme", "light");
   }
 };
@@ -28,6 +31,8 @@ const switchTheme = e => {
   localStorage.setItem("theme", theme);
   document.documentElement.setAttribute("data-theme", theme);
 };
+
+detectTheme();
 
 window.addEventListener("DOMContentLoaded", () => {
   detectTheme();
