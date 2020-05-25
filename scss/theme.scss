@@ -108,13 +108,6 @@ pre.chroma {
   @apply p-4 overflow-x-auto font-mono text-lg;
 }
 
-@screen md {
-  /* purgecss ignore */
-  div.highlight {
-    @apply -mx-12;
-  }
-}
-
 /* purgecss ignore */
 .theme-toggle.light {
   background: url(../images/sun-regular.svg) no-repeat;
